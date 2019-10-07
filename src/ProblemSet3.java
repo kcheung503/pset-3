@@ -50,13 +50,13 @@ public class ProblemSet3 {
 
     public void sign() {
       System.out.print("\nEnter an integer: ");
-         int signInteger = in.nextInt();
+         int integerSign = in.nextInt();
 
-         if(signInteger > 0) {
+         if(integerSign > 0) {
            System.out.println("\nPositive.");
-         } else if(signInteger < 0) {
+         } else if(integerSign < 0) {
            System.out.println("\nNegative.");
-         } else if(signInteger == 0) {
+         } else if(integerSign == 0) {
            System.out.println("\nZero.");
          }
     }
@@ -69,9 +69,9 @@ public class ProblemSet3 {
 
     public void parity() {
       System.out.print("\nEnter an integer: ");
-         int evenOddInteger = in.nextInt();
+         int integerParity = in.nextInt();
 
-         if((evenOddInteger % 2) == 0) {
+         if((integerParity % 2) == 0) {
            System.out.println("\nEven.");
          } else {
            System.out.println("\nOdd.");
@@ -85,7 +85,27 @@ public class ProblemSet3 {
      */
 
     public void ordered() {
+      System.out.println("\nEnter three integers.");
+         System.out.print("\nEnter integer: ");
+         int integer1 = in.nextInt();
+         System.out.print("Enter integer: ");
+         int integer2 = in.nextInt();
+         System.out.print("Enter integer: ");
+         int integer3 = in.nextInt();
 
+         if(integer1 == integer2 && integer2 == integer3) {
+           System.out.println("\nSame.");
+         } else if(integer1 < integer2 && integer2 < integer3) {
+             System.out.println("\nStrictly increasing.");
+         } else if(integer1 <= integer2 && integer2 <= integer3) {
+             System.out.println("\nIncreasing.");
+         } else if(integer1 > integer2 && integer2 > integer3) {
+           System.out.println("\nStrictly decreasing.");
+         } else if(integer1 >= integer2 && integer2 >= integer3) {
+           System.out.println("\nDecreasing.");
+         } else {
+           System.out.println("\nUnordered.");
+         }
     }
 
     /*

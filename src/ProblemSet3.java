@@ -300,7 +300,40 @@ public class ProblemSet3 {
      */
 
     public void state() {
+      System.out.print("\nEnter a temperature: ");
+      double temperature = in.nextDouble();
+      System.out.print("Enter a scale: ");
+      in.nextLine();
+      String scale = in.nextLine();
+      scale = scale.toUpperCase();
+      String state = "";
+      int fahrenheitFreezingPoint = 32;
+      int fahrenheitBoilingPoint = 212;
+      int celsiusFreezingPoint = 0;
+      int celsiusBoilingPoint = 100;
 
+      if (scale.equals("F") || scale.equals("C")) {
+        if (scale.equals("F")) {
+          if (temperature <= fahrenheitFreezingPoint) {
+            state = "Solid.";
+          } else if (temperature > fahrenheitFreezingPoint && temperature < fahrenheitBoilingPoint) {
+            state = "Liquid.";
+          } else if (temperature >= fahrenheitBoilingPoint) {
+            state = "Gas.";
+          }
+        } else if (scale.equals("C")) {
+          if (temperature <= celsiusFreezingPoint) {
+            state = "Solid.";
+          } else if (temperature > celsiusFreezingPoint && temperature < celsiusBoilingPoint) {
+            state = "Liquid.";
+          } else if (temperature >= celsiusBoilingPoint) {
+            state = "Gas.";
+          }
+        }
+        System.out.println("\n" + state);
+      } else {
+        System.out.println("\nThat's not a valid scale.");
+      }
     }
 
     /*
@@ -310,7 +343,37 @@ public class ProblemSet3 {
      */
 
     public void months() {
+      System.out.print("\nEnter a month: ");
+          String month = in.nextLine();
+          month = month.toLowerCase();
 
+          if (month.equals("jan") || month.equals("janu") || month.equals("january")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("feb") || month.equals("febr") || month.equals("february")) {
+            System.out.println("\n28 or 29 days.");
+          } else if (month.equals("mar") || month.equals("marc") || month.equals("march")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("apr") || month.equals("apri") || month.equals("april")) {
+            System.out.println("\n30 days.");
+          } else if (month.equals("may")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("jun") || month.equals("june")) {
+            System.out.println("\n30 days.");
+          } else if (month.equals("jul") || month.equals("july")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("aug") || month.equals("augu") || month.equals("august")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("sep") || month.equals("sept") || month.equals("september")) {
+            System.out.println("\n30 days.");
+          } else if (month.equals("oct") || month.equals("octo") || month.equals("october")) {
+            System.out.println("\n31 days.");
+          } else if (month.equals("nov") || month.equals("nove") || month.equals("november")) {
+            System.out.println("\n30 days.");
+          } else if (month.equals("dec") || month.equals("dece") || month.equals("december")) {
+            System.out.println("\n31 days.");
+          } else {
+            System.out.println("\nThat's not a valid month.");
+          }
     }
 
     /*
@@ -320,6 +383,29 @@ public class ProblemSet3 {
      */
 
     public void salary() {
+      System.out.print("\nWage: ");
+          double wage = in.nextDouble();
+          System.out.print("Hours: ");
+          double hours = in.nextDouble();
+          double payGrade = 1.5;
+          double overtimeWage = payGrade * wage;
+          double overtime = 0;
 
+          if (wage >= 0 && hours >= 0) {
+            if (hours > 40) {
+              double overtimeHours = hours - 40;
+              hours = 40;
+              overtime = overtimeHours * overtimeWage;
+            }
+            double salary = wage * hours;
+            salary += overtime;
+            System.out.printf("\nYou'll make $%,.2f this week.\n", salary);
+          } else if (wage < 0 && hours < 0) {
+            System.out.println("\nYour wage must be greater than or equal to $0.00/hour and your hours must be greater than or equal to 0.0.");
+          } else if (wage < 0) {
+            System.out.println("\nYour wage must be greater than or equal to $0.00/hour.");
+          } else if (hours < 0) {
+            System.out.println("\nYour hours must be greater than or equal to 0.0.");
+          }
     }
 }

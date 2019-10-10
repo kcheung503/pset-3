@@ -216,7 +216,61 @@ public class ProblemSet3 {
      */
 
     public void cards() {
+      System.out.print("\nEnter a card: ");
+      in.nextLine();
+      String card = in.nextLine();
+      String rank = card.substring(0, 1).toUpperCase();
+      String suit = card.substring(1, 2).toUpperCase();
+      String rankList = "";
+      String suitType = "";
 
+      if(card.length() == 2 && (rank.equals("2") || rank.equals("3") || rank.equals("4") || rank.equals("5") || rank.equals("6") || rank.equals("7") || rank.equals("8") || rank.equals("9") || rank.equals("T") || rank.equals("J") || rank.equals("Q") || rank.equals("K") || rank.equals("A")) && (suit.equals("C") || suit.equals("H") || suit.equals("D") || suit.equals("S"))) {
+        if (rank.equals("2")) {
+          rankList = "Two";
+        } else if (rank.equals("3")) {
+          rankList = "Three";
+        } else if (rank.equals("4")) {
+          rankList = "Four";
+        } else if (rank.equals("5")) {
+          rankList = "Five";
+        } else if (rank.equals("6")) {
+          rankList = "Six";
+        } else if (rank.equals("7")) {
+          rankList = "Seven";
+        } else if (rank.equals("8")) {
+          rankList = "Eight";
+        } else if (rank.equals("9")) {
+          rankList = "Nine";
+        } else if (rank.equals("T")) {
+          rankList = "Ten";
+        } else if (rank.equals("J")) {
+          rankList = "Jack";
+        } else if (rank.equals("Q")) {
+          rankList = "Queen";
+        } else if (rank.equals("K")) {
+          rankList = "King";
+        } else if (rank.equals("A")) {
+          rankList = "Ace";
+        }
+        if (suit.equals("C")) {
+          suitType = "Clubs";
+        } else if (suit.equals("D")) {
+          suitType = "Diamonds";
+        } else if (suit.equals("H")) {
+          suitType = "Hearts";
+        } else if (suit.equals("S")) {
+          suitType = "Spades";
+        }
+        System.out.println("\n" + rankList + " of " + suitType + ".");
+      } else if(card.length() != 2) {
+        System.out.println("\nThat's not a valid card.");
+      } else if(!(rank.equals("2") || rank.equals("3") || rank.equals("4") || rank.equals("5") || rank.equals("6") || rank.equals("7") || rank.equals("8") || rank.equals("9") || rank.equals("T") || rank.equals("J") || rank.equals("Q") || rank.equals("K") || rank.equals("A")) && !(suit.equals("C") || suit.equals("H") || suit.equals("D") || suit.equals("S"))) {
+        System.out.println("\nThat's not a valid rank or a valid suit.");
+      } else if(!(rank.equals("2") || rank.equals("3") || rank.equals("4") || rank.equals("5") || rank.equals("6") || rank.equals("7") || rank.equals("8") || rank.equals("9") || rank.equals("T") || rank.equals("J") || rank.equals("Q") || rank.equals("K") || rank.equals("A"))) {
+        System.out.println("\nThat's not a valid rank.");
+      } else if(!(suit.equals("C") || suit.equals("H") || suit.equals("D") || suit.equals("S"))) {
+        System.out.println("\nThat's not a valid suit.");
+      }
     }
 
     /*
@@ -226,7 +280,16 @@ public class ProblemSet3 {
      */
 
     public void leapYear() {
+      System.out.print("\nEnter a year: ");
+      int testLeapYear = in.nextInt();
+      String isOrIsNot = "";
 
+      if (testLeapYear % 4 == 0 && (testLeapYear % 100 != 0 | testLeapYear % 400 == 0)) {
+        isOrIsNot = " is ";
+      } else {
+        isOrIsNot = " is not ";
+      }
+      System.out.println("\n" + testLeapYear + isOrIsNot + "a leap year.");
     }
 
     /*

@@ -49,7 +49,7 @@ public class ProblemSet3 {
      */
 
     public void sign() {
-      System.out.print("\nEnter an integer: ");
+         System.out.print("\nEnter an integer: ");
          int integerSign = in.nextInt();
 
          if(integerSign > 0) {
@@ -68,7 +68,7 @@ public class ProblemSet3 {
      */
 
     public void parity() {
-      System.out.print("\nEnter an integer: ");
+         System.out.print("\nEnter an integer: ");
          int integerParity = in.nextInt();
 
          if((integerParity % 2) == 0) {
@@ -115,7 +115,51 @@ public class ProblemSet3 {
      */
 
     public void gpa() {
+          final double aGrade = 4.00;
+          final double bGrade = 3.00;
+          final double cGrade = 2.00;
+          final double dGrade = 1.00;
+          final double fGrade = 0.00;
+          final double pointDifference = 0.33;
+          String plusMinus = "";
+          double gpa = 0.00;
 
+          System.out.print("\nEnter a letter grade: ");
+          in.nextLine();
+          String gradeInput = in.nextLine();
+          gradeInput = gradeInput.trim();
+          gradeInput = gradeInput.toUpperCase();
+          String firstLetter = gradeInput.substring(0, 1);
+          if(gradeInput.length() == 2) {
+            plusMinus = gradeInput.substring(1, 2);
+          }
+          if(gradeInput.length() <= 2 && gradeInput.length() > 0 && (firstLetter.equals("A") || firstLetter.equals("B") || firstLetter.equals("C") || firstLetter.equals("D") || firstLetter.equals("F")) && (plusMinus.equals("") || plusMinus.equals("+") || plusMinus.equals("-")) && !gradeInput.equals("F+") && !gradeInput.equals("F-")) {
+            if(plusMinus.equals("+")) {
+              gpa += pointDifference;
+            } else if(plusMinus.equals("-")) {
+              gpa -= pointDifference;
+            }
+            if(firstLetter.equals("A")) {
+              gpa += aGrade;
+              if(gpa > 0) {
+                gpa -= pointDifference;
+              }
+            } else if(firstLetter.equals("B")) {
+              gpa += bGrade;
+            } else if(firstLetter.equals("C")) {
+              gpa += cGrade;
+            } else if(firstLetter.equals("D")) {
+              gpa += dGrade;
+            } else if(firstLetter.equals("F")) {
+              gpa += fGrade;
+              if(gpa < 0) {
+                gpa += pointDifference;
+              }
+            }
+            System.out.printf("\nYour GPA is %.2f.\n", gpa);
+          } else {
+            System.out.println("\nThat's not a valid letter grade.");
+          }
     }
 
     /*
@@ -125,7 +169,44 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+      System.out.print("\nEnter a grade: ");
+      double numberGrade = in.nextDouble();
+      char letterGrade2 = 'X';
+      String grammar = "";
+      int highA = 100;
+      int lowA = 90;
+      int highB = 89;
+      int lowB = 80;
+      int highC = 79;
+      int lowC = 70;
+      int highD = 69;
+      int lowD = 60;
+      int highF = 59;
+      int lowF = 0;
 
+      if(numberGrade >= lowF && numberGrade <= highA) {
+        if(numberGrade >= lowA && numberGrade <= highA) {
+          letterGrade2 = 'A';
+          grammar = "an";
+        } else if(numberGrade >= lowB && numberGrade <= highB) {
+          letterGrade2 = 'B';
+          grammar = "a";
+        } else if(numberGrade >= lowC && numberGrade <= highC) {
+          letterGrade2 = 'C';
+          grammar = "a";
+        } else if(numberGrade >= lowD && numberGrade <= highD) {
+          letterGrade2 = 'D';
+          grammar = "a";
+        } else if(numberGrade >= lowF && numberGrade <= highF) {
+          letterGrade2 = 'F';
+          grammar = "an";
+        }
+        System.out.printf("\nYou received " + grammar + " " + letterGrade2 +  ".\n");
+      } else if(numberGrade < lowF) {
+        System.out.println("\nGrades below 0 are invalid.");
+      } else if(numberGrade > 100) {
+        System.out.println("\nGrades above 100 are invalid.");
+}
     }
 
     /*
